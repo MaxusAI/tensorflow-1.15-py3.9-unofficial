@@ -1,0 +1,27 @@
+--- tensorflow/tools/pip_package/setup.py	2024-01-18 08:39:55.457060312 +0000
++++ tensorflow/tools/pip_package/setup.py	2024-01-18 08:44:09.911479683 +0000
+@@ -69,7 +69,7 @@
+     'numpy >= 1.22.0, < 1.24;python_version>="3.7"',
+     'opt_einsum >= 2.3.2',
+     'six >= 1.10.0',
+-    'protobuf >= 3.6.1, < 4.0.0',
++    'protobuf >= 3.6.1, < 3.20',
+     'tensorboard >= 1.15.0, < 1.16.0',
+     'tensorflow-estimator == 1.15.1',
+     'termcolor >= 1.1.0',
+@@ -77,7 +77,14 @@
+     'wheel >= 0.26;python_version>="3"',
+     'wheel;python_version<"3"',
+     'wrapt >= 1.11.1',
+-    'h5py == 2.10.0'
++    'h5py == 2.10.0',
++    'Keras == 2.3.1',
++    'scipy < 1.6',
++    'portpicker',
++    'scikit-learn',
++    'pandas < 2',
++    'dask',
++    'mpi4py',
+ ]
+ EXTRA_PACKAGES = {}
+

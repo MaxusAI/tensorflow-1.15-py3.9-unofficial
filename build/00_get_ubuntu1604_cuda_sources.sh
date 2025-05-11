@@ -1,11 +1,16 @@
 #!/bin/sh
 set -eu # Exit on error, undefined variable
 
+export CUDA_VERSION="11.3.1"
+export UBUNTU_VERSION="16.04"
+export UBUNTU_CUDA_FOLDER=$(echo "ubuntu${UBUNTU_VERSION}" | tr -d '.');
+
+
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-CUDA_SOURCES_DIR="${SCRIPT_DIR}/external/cuda"
+CUDA_SOURCES_DIR="${SCRIPT_DIR}/${CUDA_VERSION}/${UBUNTU_CUDA_FOLDER}/external/cuda"
 NVIDIA_CUDA_REPO_URL="https://gitlab.com/nvidia/container-images/cuda.git"
 CUDA_COMMIT_HASH="0095aa76bff27a723cf4b22557c926e0a3ba0b8b"
-EXPECTED_PATH_FRAGMENT="dist/end-of-life/11.3.1/ubuntu1604"
+EXPECTED_PATH_FRAGMENT="dist/end-of-life/${CUDA_VERSION}/${UBUNTU_CUDA_FOLDER}"
 
 echo "INFO: Preparing NVIDIA CUDA container image sources..."
 

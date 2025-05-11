@@ -1,0 +1,11 @@
+--- tensorflow/python/autograph/operators/control_flow.py	2024-01-19 04:51:29.547961943 +0000
++++ tensorflow/python/autograph/operators/control_flow.py	2024-01-19 04:52:00.395612225 +0000
+@@ -439,7 +439,7 @@
+       delta_const = tensor_util.constant_value(delta)
+       if delta_const is not None:
+         # Support single element arrays.
+-        delta_const = np.asscalar(delta_const)
++        delta_const = np.ndarray.item(delta_const)
+         if delta_const >= 0:
+           return iterate < limit
+         else:

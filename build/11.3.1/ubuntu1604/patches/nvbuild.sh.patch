@@ -1,0 +1,10 @@
+--- nvbuild.sh	2024-01-18 05:21:44.299679694 +0000
++++ nvbuild.sh	2024-01-18 05:22:44.211306171 +0000
+@@ -58,6 +58,7 @@
+ while [[ $# -gt 0 ]]; do
+   case $1 in
+     "--help"|"-h")  Usage; exit 1 ;;
++    "--python3.9")  PYVER=3.9 ;;
+     "--python3.8")  PYVER=3.8 ;;
+     "--python3.7")   PYVER=3.7 ;;
+     "--python3.6")  PYVER=3.6 ;;

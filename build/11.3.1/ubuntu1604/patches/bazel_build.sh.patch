@@ -1,0 +1,14 @@
+--- bazel_build.sh	2024-01-18 05:26:11.786012032 +0000
++++ bazel_build.sh	2024-01-18 05:39:24.817049791 +0000
+@@ -76,7 +76,10 @@
+ fi
+ # DO BUILD
+ 
+-bazel build $BAZEL_OPTS tensorflow/tools/pip_package:build_pip_package
++bazel \
++   --output_base="/tmp/tensorflow_py${PYTHON_VERSION}" \
++   --output_user_root="/tmp/.cache/bazel/_bazel_root/" \
++build $BAZEL_OPTS tensorflow/tools/pip_package:build_pip_package
+ BAZEL_BUILD_RETURN=$?
+ 
+ if [ ${BAZEL_BUILD_RETURN} -gt 0 ]

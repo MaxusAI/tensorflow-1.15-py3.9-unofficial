@@ -1,0 +1,16 @@
+--- tensorflow/python/ops/signal/util_ops.py	2024-01-19 14:41:42.900814188 +0000
++++ tensorflow/python/ops/signal/util_ops.py	2024-01-19 14:43:04.527821135 +0000
+@@ -20,6 +20,13 @@
+ 
+ import fractions
+ 
++# Patch for Python3.9+
++try:
++   import math
++   fractions.gcd = math.gcd
++except:
++   pass
++
+ from tensorflow.python.framework import ops
+ from tensorflow.python.framework import tensor_util
+ from tensorflow.python.ops import array_ops

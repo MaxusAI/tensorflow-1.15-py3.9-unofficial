@@ -3,7 +3,7 @@
 __pycache__/
 
 # Downloaded dependencies (like NVIDIA CUDA images)
-build/ubuntu1604/external/cuda/
+build/11.3.1/ubuntu1604/external/cuda/
 
 # TensorFlow build specific
 bazel-*
