@@ -1,0 +1,21 @@
+# Build artifacts
+*.pyc
+__pycache__/
+
+# Downloaded dependencies (like NVIDIA CUDA images)
+build/ubuntu1604/external/cuda/
+
+# TensorFlow build specific
+bazel-*
+_bazel_*
+
+# Distribution files
+*.whl
+dist/
+*.tar.gz
+
+# IDE / Editor specific
+.vscode/
+.idea/
+*.swp
+*~ 
