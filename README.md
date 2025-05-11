@@ -10,9 +10,9 @@ Official TensorFlow 1.15 distributions do not support Python 3.8 or 3.9. Buildin
 
 ## Features
 
-*   Provides pre-built `.whl` files for TensorFlow 1.15 compatible with Python 3.8 and 3.9 on modern Ubuntu distributions.
-*   Offers a Dockerized build environment to compile TensorFlow 1.15 from source, ensuring reproducibility and managing complex dependencies.
-*   Includes a script-based workflow (see `build/README.md`) to simplify fetching dependencies, building Docker images, and compiling the wheels.
+*   Pre-built `.whl` files for TensorFlow 1.15 compatible with Python 3.8 and 3.9.
+*   (Potentially) Build scripts to allow users to compile from source on their own systems.
+*   (Potentially) Dockerfiles for creating containerized environments.
 
 ## Supported Configurations
 
@@ -26,7 +26,7 @@ Official TensorFlow 1.15 distributions do not support Python 3.8 or 3.9. Buildin
 
 ### Downloading Pre-built Wheels
 
-*(Instructions will go here, e.g., link to GitHub Releases. This is the recommended way for most users to obtain the TensorFlow wheels.)*
+*(Instructions will go here, e.g., link to GitHub Releases)*
 
 Example installation:
 ```bash
@@ -34,31 +34,15 @@ pip install tensorflow-1.15.x-cp38-cp38-manylinux2010_x86_64.whl # Example for P
 pip install tensorflow-1.15.x-cp39-cp39-manylinux2010_x86_64.whl # Example for Python 3.9
 ```
 
-### Building from Source (Using Docker)
+### Building from Source (Optional)
 
-This project provides a Dockerized environment and helper scripts to build TensorFlow 1.15 wheels from source.
-
-1.  **Prerequisites for Building:**
-    *   Docker must be installed and running on your system.
-    *   Git (for cloning this repository).
-
-2.  **Build Instructions:**
-    *   Navigate to the `build/` directory within this project.
-    *   Follow the detailed instructions in `build/README.md` to use the provided scripts (e.g., `00_get_ubuntu1604_cuda_sources.sh`, `01_build_docker_image_ubuntu1604.sh`, `02_compile_wheel_ubuntu1604.sh`) to:
-        *   Prepare build-time dependencies (like NVIDIA CUDA container image definitions).
-        *   Build the Docker image for the target environment (e.g., Ubuntu 16.04).
-        *   Compile the TensorFlow wheel inside the Docker container.
-
-    The generated `.whl` files will typically be placed in a `dist/` directory at the root of this project.
+*(Instructions will go here if build scripts are provided)*
 
 ## Prerequisites
 
-*   **For installing pre-built wheels:**
-    *   Python 3.8 or 3.9
-    *   `pip`
-*   **For building from source:**
-    *   Docker (see `build/README.md` for details)
-    *   Git
+*   Python 3.8 or 3.9
+*   `pip`
+*   (For building from source - list necessary build tools like Bazel, GCC, etc.)
 
 ## Contributing
 
