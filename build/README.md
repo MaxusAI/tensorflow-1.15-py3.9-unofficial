@@ -4,28 +4,18 @@ This directory contains resources and instructions for specific build targets.
 
 ## Ubuntu 16.04 Build (`ubuntu1604/`)
 
-To prepare the environment for building TensorFlow 1.15 on Ubuntu 16.04, you need to fetch the appropriate NVIDIA CUDA container image definitions.
+Builds for TensorFlow 1.15 on Ubuntu 16.04 are intended to be created using Docker. The Dockerfile located in this directory (e.g., `Dockerfile`) will handle the setup of the build environment.
 
-**Steps:**
+### NVIDIA CUDA Container Image Definitions
 
-1.  **Navigate to the Ubuntu 16.04 build directory:**
-    ```bash
-    cd ubuntu1604
-    ```
+As part of the Docker build process, the necessary NVIDIA CUDA container image definitions will be fetched from:
 
-2.  **Clone the NVIDIA CUDA container images repository:**
-    We will clone it into a subdirectory named `external/cuda`.
-    ```bash
-    git clone https://gitlab.com/nvidia/container-images/cuda.git external/cuda
-    ```
+*   **Repository:** `https://gitlab.com/nvidia/container-images/cuda.git`
+*   **Commit:** `0095aa76bff27a723cf4b22557c926e0a3ba0b8b`
 
-3.  **Checkout the specific commit required for Ubuntu 16.04 compatibility:**
-    ```bash
-    cd external/cuda
-    git checkout 0095aa76bff27a723cf4b22557c926e0a3ba0b8b
-    cd .. # Back to ubuntu1604 directory
-    ```
+This specific commit is used to ensure compatibility and access to files relevant for an Ubuntu 16.04 based environment (specifically, the path `dist/end-of-life/11.3.1/ubuntu1604` within that repository is expected).
 
-After these steps, the directory `build/ubuntu1604/external/cuda/` will contain the necessary files from the NVIDIA repository, pinned to the correct commit.
+The Dockerfile will manage cloning this repository into a temporary location within the build context (e.g., `external/cuda/` within this directory) and checking out the specified commit.
 
-**Note:** The `external/cuda/` directory within `build/ubuntu1604/` should be added to the project's `.gitignore` file to prevent committing these externally fetched files to this project's repository. 
+**Note on Local Checkouts:**
+If you manually clone the NVIDIA repository into `build/ubuntu1604/external/cuda/` for inspection, please be aware that this path is included in the project's `.gitignore` file. This is to prevent these externally fetched files from being accidentally committed to this project's repository, as they are considered a build-time dependency fetched by the build process itself. 
